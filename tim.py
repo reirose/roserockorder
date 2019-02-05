@@ -25,10 +25,18 @@ class BotHandler:
 	def editmsg(chat,msgid,text):
 		params = {'chat_id': chat, 'message_id': msgid,'text':text}
 		response = requests.post(url + 'editMessageText', data=params)
-		return response		
+		return response
+	def getmsgtext(update):
+		text = update['message']['text']
+		return text	
+	def getusername(update):
+		username = update['message']['from']['username']
+		return username
 	os.system('title timer()')
 	msgid = getmsgid(lastupdate(getupdatesjson(url))) + 1
+	sendmessage(352318827, '<timer>')
 	while True:
+		chat = getchatid(lastupdate(getupdatesjson(url)))
 		time.asctime()
 		msg = time.strftime('%d %b %Y\n%X (MSK-2)')
 		editmsg(352318827, msgid, msg)
