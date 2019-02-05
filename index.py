@@ -3,6 +3,7 @@ from time import sleep
 import os
 
 url = "https://api.telegram.org/bot674745415:AAFQZvzno4kljKq0ITDyViW8RhWsHQWRTXA/"
+msg = ''
 
 #chatlist
 reirose = 352318827
@@ -124,23 +125,26 @@ class BotHandler:
 			os.system('python triggers.py')
 			print('запускаем триггеры...')
 		elif chs == "manual":
-			lastmsg = str(getmsgtext(lastupdate(getupdatesjson(url))))
-			print('last recieved message: ' + "'" + lastmsg + "'")
-			chat1 = input('chat id: ')
-			if chat1 == "reirose":
-				chat = reirose
-			elif chat1 == "evgenon":
-				chat = evgenon
-			elif chat1 == "iiba":
-				chat = iibanutsa
-			elif chat1 == "kys":
-				chat = kys
-			elif chat1 == "gotcha":
-				chat = gotcha
-			else:
-				chat = chat1
-			msg = input('>>')
-			sendmessage(chat, msg)
+			while msg != 'exit()':
+				lastmsg = str(getmsgtext(lastupdate(getupdatesjson(url))))
+				print('last recieved message: ' + "'" + lastmsg + "'")
+				chat1 = input('chat id: ')
+				if chat1 == "reirose":
+					chat = reirose
+				elif chat1 == "evgenon":
+					chat = evgenon
+				elif chat1 == "iiba":
+					chat = iibanutsa
+				elif chat1 == "kys":
+					chat = kys
+				elif chat1 == "gotcha":
+					chat = gotcha
+				elif chat1 == "last":
+					chat = getchatid(lastupdate(getupdatesjson(url)))
+				else:
+					chat = chat1
+				msg = input('>>')
+				sendmessage(chat, msg)
 		elif chs == "prepin":
 			prepin = open('8a6f503814aa4a7cd863e68c7778fbdb', 'w')
 			pin = input('Prepin: ')
