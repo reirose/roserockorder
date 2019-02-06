@@ -181,4 +181,5 @@ class BotHandler:
 			exit()
 		else:
 			print("*shrug*")
+		msg = 'null'
 		os.system('cls')
