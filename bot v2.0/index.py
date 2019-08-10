@@ -65,7 +65,7 @@ def randomnum(bot, update):
 
 
 def main():
-    updater = Updater('674745415:AAFQZvzno4kljKq0ITDyViW8RhWsHQWRTXA')
+    updater = Updater(TOKEN)
     dp = updater.dispatcher
     #dp.add_handler(CommandHandler('',))
     dp.add_handler(CommandHandler('random',randomnum))
