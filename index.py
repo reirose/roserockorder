@@ -2,7 +2,7 @@ import requests
 from time import sleep
 import os
 
-url = "https://api.telegram.org/bot674745415:AAFQZvzno4kljKq0ITDyViW8RhWsHQWRTXA/"
+url = "https://api.telegram.org/botTOKEN/"
 msg = ''
 
 #chatlist
